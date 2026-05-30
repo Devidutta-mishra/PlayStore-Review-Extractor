@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Store Review Exporter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <main class="popup-shell" aria-live="polite">
+        <header class="app-header">
+            <div class="app-logo" aria-hidden="true">
+                <img src="assets/icons/icon48.png" alt="">
+            </div>
+            <div>
+                <h1>Play Store Review Exporter</h1>
+                <p>Export Google Play reviews instantly</p>
+            </div>
+        </header>
+
+        <section id="emptyState" class="empty-state" hidden>
+            <div class="empty-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5v-13Z" />
+                    <path d="M8 8h8M8 12h8M8 16h5" />
+                </svg>
+            </div>
+            <h2>Open a Google Play Store app page to begin.</h2>
+            <p>Navigate to an app listing, then reopen the extension to export reviews.</p>
+        </section>
+
+        <section id="appCard" class="status-card">
+            <div class="status-row">
+                <span class="status-label">Current app</span>
+                <span id="pageStateBadge" class="badge">Checking</span>
+            </div>
+            <strong id="currentAppName" class="app-name">Detecting app page...</strong>
+            <p id="statusText" class="muted">Choose your export settings.</p>
+        </section>
+
+        <section id="controls" class="settings-stack">
+            <section class="panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Review Count</h2>
+                        <p>Pick a limit before loading starts.</p>
+                    </div>
+                </div>
+
+                <div class="segmented-control" role="radiogroup" aria-label="Review count">
+                    <label>
+                        <input type="radio" name="reviewCount" value="100">
+                        <span>100</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="reviewCount" value="500">
+                        <span>500</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="reviewCount" value="1000" checked>
+                        <span>1000</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="reviewCount" value="5000">
+                        <span>5000</span>
+                    </label>
+                    <label class="wide-option">
+                        <input type="radio" name="reviewCount" value="all">
+                        <span>All Loaded</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Export Format</h2>
+                        <p>CSV for spreadsheets, JSON for analysis.</p>
+                    </div>
+                </div>
+
+                <div class="format-grid" role="radiogroup" aria-label="Export format">
+                    <label class="format-card">
+                        <input type="radio" name="exportFormat" value="csv" checked>
+                        <span class="format-icon">CSV</span>
+                        <span>
+                            <strong>CSV</strong>
+                            <small>Spreadsheet ready</small>
+                        </span>
+                    </label>
+                    <label class="format-card">
+                        <input type="radio" name="exportFormat" value="json">
+                        <span class="format-icon">JSON</span>
+                        <span>
+                            <strong>JSON</strong>
+                            <small>Structured data</small>
+                        </span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="panel progress-panel">
+                <div class="progress-meta">
+                    <span id="progressLabel">Ready</span>
+                    <strong id="reviewCounter">0 loaded</strong>
+                </div>
+                <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span id="progressBar"></span>
+                </div>
+                <div class="stats-grid">
+                    <div>
+                        <span>Target</span>
+                        <strong id="targetStat">1000</strong>
+                    </div>
+                    <div>
+                        <span>Format</span>
+                        <strong id="formatStat">CSV</strong>
+                    </div>
+                    <div>
+                        <span>Exported</span>
+                        <strong id="exportedStat">-</strong>
+                    </div>
+                </div>
+            </section>
+
+            <button id="exportBtn" class="export-button" type="button" aria-label="Export reviews">
+                <span class="button-spinner" aria-hidden="true"></span>
+                <span id="exportBtnText">Export Reviews</span>
+            </button>
+        </section>
+    </main>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

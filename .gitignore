@@ -1,0 +1,25 @@
+# OS files
+.DS_Store
+*.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+
+STORE_PUBLICATION_KIT.md
+PRIVACY_POLICY.md
+docs/STORE_PUBLICATION_KIT.md
+docs/PRIVACY_POLICY.md
+scripts/generate_icons.py
+
+*.zip
+dist/
+build/
+
+__pycache__/
+*.pyc

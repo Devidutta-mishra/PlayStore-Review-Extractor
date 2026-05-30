@@ -1,0 +1,450 @@
+:root {
+    color-scheme: light;
+    --bg: #f6f8fb;
+    --surface: #ffffff;
+    --surface-strong: #f9fbff;
+    --text: #142033;
+    --muted: #667085;
+    --line: #e4e9f2;
+    --primary: #1a73e8;
+    --primary-dark: #1557b0;
+    --primary-soft: #e8f1ff;
+    --success: #138a43;
+    --success-soft: #e9f8ef;
+    --warning: #b25e09;
+    --warning-soft: #fff4e5;
+    --danger: #c72e3b;
+    --danger-soft: #fff0f1;
+    --shadow: 0 18px 48px rgba(20, 32, 51, 0.14);
+    --radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: min(420px, 100vw);
+    min-width: 360px;
+    margin: 0;
+    background:
+        radial-gradient(circle at top left, rgba(26, 115, 232, 0.12), transparent 34%),
+        var(--bg);
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.popup-shell {
+    display: grid;
+    gap: 14px;
+    padding: 18px;
+}
+
+.app-header {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+    align-items: center;
+}
+
+.app-logo {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(26, 115, 232, 0.2);
+}
+
+.app-logo img {
+    width: 48px;
+    height: 48px;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 760;
+}
+
+.app-header p,
+.section-heading p,
+.empty-state p,
+.muted {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 12.5px;
+    line-height: 1.45;
+}
+
+.status-card,
+.panel,
+.empty-state {
+    border: 1px solid rgba(228, 233, 242, 0.9);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 12px 30px rgba(20, 32, 51, 0.08);
+}
+
+.status-card {
+    display: grid;
+    gap: 8px;
+    padding: 14px;
+}
+
+.status-row,
+.section-heading,
+.progress-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.status-label {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 650;
+    text-transform: uppercase;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 720;
+}
+
+.badge.success {
+    background: var(--success-soft);
+    color: var(--success);
+}
+
+.badge.warning {
+    background: var(--warning-soft);
+    color: var(--warning);
+}
+
+.badge.danger {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+.app-name {
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.settings-stack {
+    display: grid;
+    gap: 12px;
+}
+
+.panel {
+    padding: 14px;
+}
+
+.section-heading {
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 760;
+}
+
+.segmented-control {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.segmented-control label,
+.format-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.segmented-control input,
+.format-card input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.segmented-control span {
+    display: grid;
+    place-items: center;
+    min-height: 38px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface-strong);
+    color: #3f4b5f;
+    font-size: 13px;
+    font-weight: 720;
+    transition: 160ms ease;
+}
+
+.wide-option {
+    grid-column: span 2;
+}
+
+.segmented-control input:checked + span {
+    border-color: rgba(26, 115, 232, 0.85);
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    box-shadow: inset 0 0 0 1px rgba(26, 115, 232, 0.18);
+}
+
+.format-card:has(input:checked) {
+    border-color: rgba(26, 115, 232, 0.85);
+    background: var(--primary-soft);
+    box-shadow: inset 0 0 0 1px rgba(26, 115, 232, 0.18);
+}
+
+.segmented-control label:hover span,
+.format-card:hover {
+    transform: translateY(-1px);
+    border-color: rgba(26, 115, 232, 0.45);
+}
+
+.segmented-control input:focus-visible + span,
+.format-card:has(input:focus-visible),
+.export-button:focus-visible {
+    outline: 3px solid rgba(26, 115, 232, 0.28);
+    outline-offset: 2px;
+}
+
+.format-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.format-card {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 10px;
+    align-items: center;
+    min-height: 68px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface-strong);
+    transition: 160ms ease;
+}
+
+.format-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: #edf4ff;
+    color: var(--primary-dark);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.format-card strong,
+.format-card small {
+    display: block;
+}
+
+.format-card strong {
+    font-size: 13px;
+}
+
+.format-card small {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 11.5px;
+}
+
+.progress-panel {
+    display: grid;
+    gap: 11px;
+}
+
+.progress-meta {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.progress-meta strong {
+    color: var(--text);
+    font-size: 12px;
+}
+
+.progress-track {
+    overflow: hidden;
+    height: 9px;
+    border-radius: 999px;
+    background: #e9eef7;
+}
+
+.progress-track span {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #1a73e8, #0f9d58);
+    transition: width 220ms ease;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.stats-grid div {
+    min-width: 0;
+    padding: 9px;
+    border-radius: var(--radius);
+    background: #f6f8fb;
+}
+
+.stats-grid span,
+.stats-grid strong {
+    display: block;
+}
+
+.stats-grid span {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.stats-grid strong {
+    overflow: hidden;
+    margin-top: 3px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.export-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 48px;
+    border: 0;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--primary), #0f9d58);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 780;
+    box-shadow: var(--shadow);
+    transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.export-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 54px rgba(26, 115, 232, 0.22);
+}
+
+.export-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.export-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.62;
+    box-shadow: none;
+}
+
+.button-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.42);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 700ms linear infinite;
+}
+
+.export-button.is-loading .button-spinner {
+    display: inline-block;
+}
+
+.empty-state {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    padding: 26px 18px;
+    text-align: center;
+}
+
+.empty-state[hidden],
+.settings-stack[hidden],
+.status-card[hidden] {
+    display: none;
+}
+
+.empty-icon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    background: var(--primary-soft);
+}
+
+.empty-icon svg {
+    width: 31px;
+    height: 31px;
+    fill: none;
+    stroke: var(--primary-dark);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.empty-state h2 {
+    max-width: 280px;
+    margin: 4px 0 0;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 1ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+    }
+}

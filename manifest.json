@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Play Store Review Exporter",
+  "version": "1.0.0",
+  "version_name": "1.0.0",
+  "description": "Export Google Play app reviews to CSV or JSON with limits, progress tracking, and local-only processing.",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://play.google.com/store/apps/details*"
+  ],
+  "action": {
+    "default_title": "Play Store Review Exporter",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  }
+}

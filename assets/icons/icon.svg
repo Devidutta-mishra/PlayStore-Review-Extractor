@@ -1,0 +1,16 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="16" y="16" width="96" height="96" rx="24" fill="url(#tile)"/>
+  <path d="M38 37.5C38 33.9 40.9 31 44.5 31H83.5C87.1 31 90 33.9 90 37.5V62.5C90 66.1 87.1 69 83.5 69H62.7L50.8 80.6C49.8 81.6 48 80.9 48 79.5V69H44.5C40.9 69 38 66.1 38 62.5V37.5Z" fill="white"/>
+  <path d="M63.2 39.2C63.5 38.4 64.5 38.4 64.8 39.2L67.2 46.3H74.7C75.6 46.3 76 47.4 75.2 47.9L69.2 52.3L71.5 59.4C71.8 60.2 70.9 60.9 70.2 60.4L64 56L57.8 60.4C57.1 60.9 56.2 60.2 56.5 59.4L58.8 52.3L52.8 47.9C52 47.4 52.4 46.3 53.3 46.3H60.8L63.2 39.2Z" fill="#F9AB00"/>
+  <rect x="43" y="88" width="10" height="16" rx="5" fill="#D8E8FF"/>
+  <rect x="59" y="79" width="10" height="25" rx="5" fill="#D8E8FF"/>
+  <rect x="75" y="83" width="10" height="21" rx="5" fill="#D8E8FF"/>
+  <path d="M91 76V98M91 98L82 89M91 98L100 89" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="tile" x1="24" y1="18" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A73E8"/>
+      <stop offset="0.58" stop-color="#0F9D58"/>
+      <stop offset="1" stop-color="#11A7A1"/>
+    </linearGradient>
+  </defs>
+</svg>
